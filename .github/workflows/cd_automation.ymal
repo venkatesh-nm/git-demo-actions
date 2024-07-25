@@ -1,0 +1,31 @@
+name: Run Pandas Job
+
+on:
+  push:
+    branches:
+    - main
+    - master
+  pull_request:
+    branches:
+    - main
+  schedule: ' 0 0 * * *'
+
+  jobs:
+    run-my-job:
+      runs_pandas_job:
+        runs-on: ubuntu-latest
+
+        steps:
+        - name: Checkout code
+          uses: actions/checkout@v2
+
+        - name: Set up Python
+          uses: actions/setup-python@4
+          with:
+            python-version: '3.9'
+
+        - name: Install dependencies
+          run: pup install pandas
+
+        - name: Run Pandas job
+          run: python app.py  
