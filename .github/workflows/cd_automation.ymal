@@ -4,10 +4,11 @@ on:
   push:
     branches:
     - main
-    - master
+    - Master
   pull_request:
     branches:
     - main
+    - Master
   schedule: ' 0 0 * * *'
 
   jobs:
