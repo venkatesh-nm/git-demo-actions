@@ -7,8 +7,8 @@ jobs:
       - name: Configure AWS credentials
         uses: aws-actions/configure-aws-credentials@v1
         with:
-          aws-access-key-id: awsaccesskeyid
-          aws-secret-access-key: AWSSECRETACCESSKEY
+          aws-access-key-id: ${{ secrets.awsaccesskeyid }}
+          aws-secret-access-key: ${{ secrets.AWSSECRETACCESSKEY }}
           aws-region: ap-south-1
       - name: Upload to s3
         run: aws s3 cp ./app.py s3://venckat-demo-bucket
